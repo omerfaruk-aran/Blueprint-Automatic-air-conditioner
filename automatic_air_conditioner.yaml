@@ -290,20 +290,18 @@ action:
     - domain: mobile_app
       type: notify
       device_id: !input notify_device
-      title: '{% if language == ''Italiano'' %}CONDIZIONATORE {% else %}AIR CONDITIONER.
+      title: '{% if language == ''Türkçe'' %}KLİMA {% else %}AIR CONDITIONER.
         {% endif %}'
-      message: '{% if language == ''Italiano'' %}Accensione condizionatore eseguita
-        ci sono {{state_attr(climate,''current_temperature'')|float(0)}}° {% else
+      message: '{% if language == ''Türkçe'' %}Klimayı Açın. Sıcaklık {{state_attr(climate,''current_temperature'')|float(0)}}° {% else
         %} Turn on air conditioner performed there are {{state_attr(climate,''current_temperature'')|float(0)}}°
         {% endif %}'
     else:
     - domain: mobile_app
       type: notify
       device_id: !input notify_device
-      title: '{% if language == ''Italiano'' %}CONDIZIONATORE {% else %}  AIR CONDITIONER.
+      title: '{% if language == ''Türkçe'' %}KLİMA {% else %}  AIR CONDITIONER.
         {% endif %}'
-      message: '{% if language == ''Italiano'' %}Accensione condizionatore non eseguito
-        perchè hai lasciato aperta la finesta. {% else %} Turning on air conditioner
+      message: '{% if language == ''Türkçe'' %}Pencereyi açık bıraktığınız için klima açılamıyor. {% else %} Turning on air conditioner
         not performed because you left the window open. {% endif %}'
 - alias: Spegni climate
   if:
@@ -323,12 +321,10 @@ action:
   - domain: mobile_app
     type: notify
     device_id: !input notify_device
-    title: '{% if language == ''Italiano'' %}CONDIZIONATORE {% else %}  AIR CONDITIONER.
+    title: '{% if language == ''Türkçe'' %}KLİMA {% else %}  AIR CONDITIONER.
       {% endif %}'
-    message: '{% if language == ''Italiano'' and trigger.id == ''window'' %}Condizionatore
-      spento perchè è stata aperta la finestra. {% elif language == ''Italiano'' and
-      (trigger.id == ''climate_off'' or trigger.id == ''presence_home'')%} Spegnimento
-      automatico condizionatore. {% elif language == ''English'' and trigger.id == ''window'' %} Air conditioner
+    message: '{% if language == ''Türkçe'' and trigger.id == ''window'' %}Pencere açık olduğu için klima kapandı. {% elif language == ''Türkçe'' and
+      (trigger.id == ''climate_off'' or trigger.id == ''presence_home'')%} Otomatik klima kapatma. {% elif language == ''English'' and trigger.id == ''window'' %} Air conditioner
       turned off because the window was opened. {% elif language == ''English'' and
       (trigger.id == ''climate_off'' or trigger.id == ''presence_home'')%} Automatic
       air conditioner shutdown.{% endif %}'
